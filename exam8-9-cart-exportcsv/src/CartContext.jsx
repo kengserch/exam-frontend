@@ -3,7 +3,6 @@ import { createContext, useContext, useState, useEffect } from 'react';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    // ✅ แก้ตรงนี้ (เพิ่ม export)
     const API_URL = 'https://fakestoreapi.com/products';
     const [data, setData] = useState([]);
     const [cart, setCart] = useState([]);

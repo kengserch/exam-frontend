@@ -1,18 +1,16 @@
 import { Link } from 'react-router';
 import { useCart } from './CartContext';
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from 'react-csv';
 function Home() {
     const { data, addToCart, totalItems, totalPrice } = useCart();
 
-
-    const csvData = data.map(product => ({
+    const csvData = data.map((product) => ({
         ID: product.id,
         Title: product.title,
         Price: product.price,
         Category: product.category,
-        Image: product.image
+        Image: product.image,
     }));
-
 
     return (
         <div className="mx-auto max-w-md md:max-w-7xl">
@@ -29,7 +27,13 @@ function Home() {
                 </div>
             </div>
 
-            <CSVLink data={csvData} filename="products.csv" className="p-2 bg-emerald-700  text-white rounded cursor-pointer">Download CSV</CSVLink>
+            <CSVLink
+                data={csvData}
+                filename="products.csv"
+                className="p-2 bg-emerald-700  text-white rounded cursor-pointer"
+            >
+                Download CSV
+            </CSVLink>
 
             <div className="grid grid-cols-1 gap-6 justify-items-center md:grid-cols-4 mt-20">
                 {data.map((product) => (
